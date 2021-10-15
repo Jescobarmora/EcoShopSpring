@@ -1,0 +1,54 @@
+/* Sin espacios */
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  border: 0px;
+}
+h1,h2,p{
+  margin-top: 30px;
+}
+/* Titulo */
+h1 {
+  font-family: 'Lora', serif;
+  color: #557c3e;
+  font-size: 30px ;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #222;
+}
+
+
+/*Contenido de la fila conteiner*/
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content:space-between;
+  align-items:stretch;
+  background-color: #e8ec74;
+  padding: 7px 50px 0px 50px;
+}
+
+/*Dentro del brand alinear el mini logo*/
+.navbar-brand p{
+display: flex;
+flex-direction: row;
+align-items:stretch;
+justify-content: flex-start;
+}
+
+/*Dejar sin decoracion H! y login*/
+.container a:hover, .container a:focus {
+  text-decoration: none;
+}
+.container a {
+  text-decoration: none;
+}
+
+#logo-img {
+  background: url('../images/logos/logo.png') no-repeat;
+  background-size: 100% 100%;
+  width: 150px;
+  height: 150px;
+  margin: 10px 15px 10px 0;
+}
