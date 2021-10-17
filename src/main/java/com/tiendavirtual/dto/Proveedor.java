@@ -20,6 +20,7 @@ public class Proveedor {
 		this.email = email;
 		this.sitioweb = sitioweb;
 	}
+	public Proveedor() {}
 	
 	public long getNIT() {
 		return NIT;

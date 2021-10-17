@@ -1,6 +1,5 @@
 package com.ecoshop.tiendavirtual;
 
-
 import java.io.File;
 import java.util.ArrayList;
 
@@ -23,91 +22,103 @@ import com.tiendavirtual.dto.Usuario;
 
 @RestController
 public class Controlador {
-	
+
 	/*------------------------------------------- Usuarios --------------------------------------------------*/
-	
-    @RequestMapping("/crearUsuario")
-    public String insertarUsuario(Usuario user) {
-    	UsuarioDAO dao=new UsuarioDAO();
-    	dao.insertarUsuario(user);
-    	
-        return "Microservicio de insercion de usuario";//esto al final es un response
-    }	
-    
-    @RequestMapping("/actualizarUsuario")
-    public String modificarUsuario(Usuario user) {
-    	UsuarioDAO dao=new UsuarioDAO();
-    	dao.modificarUsuario(user);
-    	
-        return "Microservicio para modificar usuario";//esto al final es un response
-    }
-    
-    @RequestMapping("/buscarUsuario")
-    public ArrayList<Usuario> buscarUsuario(long cedula) {
-    	
-    	UsuarioDAO dao=new UsuarioDAO();
-    	ArrayList<Usuario> usuarios=dao.buscarUsuario(cedula);
-        return usuarios;//esto al final es un response
-    }
-    
-    @RequestMapping("/eliminarUsuario")
-    public String borrarUsuario(long cedula) {
-    	UsuarioDAO dao=new UsuarioDAO();
-    	dao.eliminarUsuario(cedula);
-    	return "Microservicio para borrar el usuario";//esto al final es un response
-    }
-    
-    
-    
-    /*------------------------------------------- Clientes --------------------------------------------------*/
-    @RequestMapping("/crearCliente")
-    public String insertarCliente(Cliente client) {
-    	ClienteDAO dao=new ClienteDAO();
-    	dao.insertarCliente(client);
-    	
-        return "Microservicio de insercion de cliente";//esto al final es un response
-    }
-    
-    @RequestMapping("/actualizarCliente")
-    public String actualizarCliente(Cliente client) {
-    	ClienteDAO dao=new ClienteDAO();
-    	dao.actualizarCliente(client);
-    	
-        return "Microservicio para actualizar cliente";//esto al final es un response
-    }
-    
-    @RequestMapping("/buscarCliente")
-    public ArrayList<Cliente> consultarCliente(long cedula) {
-    	
-    	ClienteDAO dao=new ClienteDAO();
-    	ArrayList<Cliente> clientes=dao.consultarCliente(cedula);
-        return clientes;//esto al final es un response
-    }
-    
-    @RequestMapping("/eliminarCliente")
-    public String eliminarCliente(long cedula) {
-    	ClienteDAO dao=new ClienteDAO();
-    	dao.eliminarCliente(cedula);
-    	return "Microservicio para borrar el cliente";//esto al final es un response
-    }
-    
-    
-    /*------------------------------------------- Proveedor --------------------------------------------------*/
-    @RequestMapping("/registrarProveedor")
-	public String registrarProveedor(Proveedor p) {		
+
+	@RequestMapping("/crearUsuario")
+	public String insertarUsuario(Usuario user) {
+		UsuarioDAO dao = new UsuarioDAO();
+		dao.insertarUsuario(user);
+
+		return "Microservicio de insercion de usuario";// esto al final es un response
+	}
+
+	@RequestMapping("/actualizarUsuario")
+	public String modificarUsuario(Usuario user) {
+		UsuarioDAO dao = new UsuarioDAO();
+		dao.modificarUsuario(user);
+
+		return "Microservicio para modificar usuario";// esto al final es un response
+	}
+
+	@RequestMapping("/buscarUsuario")
+	public ArrayList<Usuario> buscarUsuario(long cedula) {
+
+		UsuarioDAO dao = new UsuarioDAO();
+		ArrayList<Usuario> usuarios = dao.buscarUsuario(cedula);
+		return usuarios;// esto al final es un response
+	}
+
+	@RequestMapping("/eliminarUsuario")
+	public String borrarUsuario(long cedula) {
+		UsuarioDAO dao = new UsuarioDAO();
+		dao.eliminarUsuario(cedula);
+		return "Microservicio para borrar el usuario";// esto al final es un response
+	}
+
+	/*------------------------------------------- Clientes --------------------------------------------------*/
+	@RequestMapping("/crearCliente")
+	public String insertarCliente(Cliente client) {
+		ClienteDAO dao = new ClienteDAO();
+		dao.insertarCliente(client);
+
+		return "Microservicio de insercion de cliente";// esto al final es un response
+	}
+
+	@RequestMapping("/actualizarCliente")
+	public String actualizarCliente(Cliente client) {
+		ClienteDAO dao = new ClienteDAO();
+		dao.actualizarCliente(client);
+
+		return "Microservicio para actualizar cliente";// esto al final es un response
+	}
+
+	@RequestMapping("/buscarCliente")
+	public ArrayList<Cliente> consultarCliente(long cedula) {
+
+		ClienteDAO dao = new ClienteDAO();
+		ArrayList<Cliente> clientes = dao.consultarCliente(cedula);
+		return clientes;// esto al final es un response
+	}
+
+	@RequestMapping("/eliminarCliente")
+	public String eliminarCliente(long cedula) {
+		ClienteDAO dao = new ClienteDAO();
+		dao.eliminarCliente(cedula);
+		return "Microservicio para borrar el cliente";// esto al final es un response
+	}
+
+	/*------------------------------------------- Proveedor --------------------------------------------------*/
+	@RequestMapping("/registrarProveedor")
+	public String registrarProveedor(Proveedor p) {
 		ProveedorDAO dao = new ProveedorDAO();
 		dao.insertProveedor(p);
-		return "Proveedor Registrado";		
+		return "Proveedor Registrado";
 	}
-	
+
 	@RequestMapping("/consultarProveedores")
-	public ArrayList<Proveedor> consultarProveedores(String nit) {		
+	public ArrayList<Proveedor> consultarProveedores(String nit) {
 		ProveedorDAO dao = new ProveedorDAO();
-		return dao.consultarProveedores(nit);		
+		return dao.consultarProveedores(nit);
 	}
-	
-/*------------------------------------------- Producto --------------------------------------------------*/
-	
+
+	@RequestMapping("/actualizarProveedor")
+	public String actualizarProveedor(Proveedor proveedor) {
+		ProveedorDAO dao = new ProveedorDAO();
+		dao.actualizarProveedor(proveedor);
+
+		return "Microservicio para actualizar proveedor";// esto al final es un response
+	}
+
+	@RequestMapping("/eliminarProveedor")
+	public String eliminarProveedor(long NIT) {
+		ProveedorDAO dao = new ProveedorDAO();
+		dao.eliminarProveedor(NIT);
+		return "Microservicio para borrar el proveedor";// esto al final es un response
+	}
+
+	/*------------------------------------------- Producto --------------------------------------------------*/
+
 	@PostMapping("/cargarProducto")
 	public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file) {
 		String fileName = file.getOriginalFilename();
@@ -121,14 +132,12 @@ public class Controlador {
 		}
 		return ResponseEntity.ok("Archivo cargado con exito.");
 	}
-	
-	
-/*------------------------------------------- Ventas --------------------------------------------------*/
+
+	/*------------------------------------------- Ventas --------------------------------------------------*/
 	@RequestMapping("/consultarVentas")
-	public ArrayList<String> consultarVentas(String tipo) {		
+	public ArrayList<String> consultarVentas(String tipo) {
 		VentasDAO dao = new VentasDAO();
-		return dao.consultarConsolidado(tipo);		
+		return dao.consultarConsolidado(tipo);
 	}
-	
-	
+
 }
