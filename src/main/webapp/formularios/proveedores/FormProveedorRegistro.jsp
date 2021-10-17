@@ -14,7 +14,7 @@
 			alert("El nombre no puede ser vacio.");
 			return false;
 		} else if (document.getElementById("txtDireccion").value.trim().length == 0) {
-			alert("La direccionn no puede ser vacia.");
+			alert("La dirección no puede ser vacia.");
 			return false;
 		} else if (document.getElementById("txtTelefono").value.trim().length == 0) {
 			alert("El telefono no puede ser vacio.");
@@ -66,7 +66,7 @@
 			<td><input type="text" id="txtNombre" name="nombre"></td>
 		</tr>
 		<tr>
-			<td><label for="txtDireccion">Direccion:</label></td>
+			<td><label for="txtDireccion">Dirección:</label></td>
 			<td><input type="text" id="txtDireccion" name="direccion"></td>
 		</tr>
 		<tr>
@@ -74,7 +74,7 @@
 			<td><input type="text" id="txtTelefono" name="telefono"></td>
 		</tr>
 		<tr>
-			<td><label for="txtEmail">Correo Electronico:</label></td>
+			<td><label for="txtEmail">Correo Electrónico:</label></td>
 			<td><input type="email" id="txtEmail" name="email"></td>
 		</tr>
 		<tr>
