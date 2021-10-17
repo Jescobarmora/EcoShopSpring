@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head><link rel="stylesheet" href="../../css/admin_in.css">
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
@@ -75,7 +75,10 @@
 </head>
 <body>
 	<button onclick="consultar(0)">Consultar por producto</button>
+	<br>
 	<button onclick="consultar(1)">Consultar por cliente</button>
+	<br>
+	<a class="back" href="../../admin.html">Atras</a>
 	<br>
 	<br>
 	<div id="barchart_material" style="width: 900px; height: 500px;"></div>

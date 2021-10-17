@@ -2,14 +2,14 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head><link rel="stylesheet" href="../../css/admin_in.css">
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <script type="text/javascript">
 	function enviarDatos() {
 		var valido = validar();
 		if (valido) {
-			alert("Los datos son validos");
+			//alert("Los datos son validos");
 			var cedula = document.getElementById("txtCedula").value.trim();
 			var nombre = document.getElementById("txtNombre").value.trim();
 			var direccion = document.getElementById("txtDirec").value.trim();
@@ -60,22 +60,32 @@
 <body>
 	<main>
 		<h1>Registro del cliente</h1>
-			<label for="txtCedula">Cedula:</label> 
-			<input type="number" id="txtCedula"> 
-			<br> <br> 
-			<label for="txtNombre">Nombre Completo:</label> 
-			<input type="text" id="txtNombre"> 
-			<br> <br>
-			<label for="txtDireccion">Direccion:</label> 
-			<input type="text" id="txtDirec"> 
-			<br> <br>
-			<label for="txtTelefono">Telefono:</label>
-			<input type="number" id="txtTel"> 
-			<br> <br> 
-			<label for="txtEmail">Email:</label> 
-			<input type="email" id="txtEmail">
+		<table>
+			<tr>
+				<td><label>Cedula:</label></td>
+				<td><input type="number" id="txtCedula"></td>
+			</tr>
+			<tr>
+				<td><label>Nombre Completo:</label></td>
+				<td><input type="text" id="txtNombre"> </td>
+			</tr>
+			<tr>
+				<td><label>Direccion:</label></td>
+				<td><input type="text" id="txtDirec"> </td>
+			</tr>
+			<tr>
+				<td><label>Telefono:</label></td>
+				<td><input type="number" id="txtTel"> </td>
+			</tr>
+			<tr>
+				<td><label>Email:</label></td>
+				<td><input type="email" id="txtEmail"></td>
+			</tr>
+			
+		</table>
 			<br> <br> 
 			<button onclick="enviarDatos()">Registrar cliente</button>
+			<a class="back" href="../../admin.html">Atras</a>
 			<br><br>
 		<div id="dvTabla"></div>
 		

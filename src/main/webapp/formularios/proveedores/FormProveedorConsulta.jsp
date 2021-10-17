@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head><link rel="stylesheet" href="../../css/admin_in.css">
 <meta charset="ISO-8859-1">
 <title>Consulta de Proveedores</title>
 <script>
@@ -85,6 +85,7 @@
 			<td><label for="txtNIT">NIT:</label></td>
 			<td><input type="text" id="txtNIT" name="NIT"></td>
 			<td><button onclick="consultar()">Consultar</button></td>
+			<td><a class="back" href="../../admin.html">Atras</a></td>
 		</tr>
 	</table>
 	<div id="dvResult"></div>

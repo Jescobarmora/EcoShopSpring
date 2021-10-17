@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head><link rel="stylesheet" href="../../css/admin_in.css">
 <meta charset="ISO-8859-1">
 <title>Registro de Proveedores</title>
 <script>
@@ -46,7 +46,7 @@
 
 			http.onreadystatechange = function() {//Call a function when the state changes.
 				if (http.readyState == 4 && http.status == 200) {
-					alert(http.responseText);
+					//alert(http.responseText);
 				}
 			}
 			http.send(params);
@@ -84,6 +84,7 @@
 		<tr>
 			<td><button onclick="sendData()">Enviar Datos</button></td>
 			<td><button onclick="clearForm()">Cancelar</button></td>
+			<td><a class="back" href="../../admin.html">Atras</a></td>
 		</tr>
 	</table>
 

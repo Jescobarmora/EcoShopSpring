@@ -2,14 +2,14 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head><link rel="stylesheet" href="../../css/admin_in.css">
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <script type="text/javascript">
 	function enviarDatos() {
 		var valido = validar();
 		if (valido) {
-			alert("Los datos son validos");
+			//alert("Los datos son validos");
 			var nombre = document.getElementById("txtUser").value.trim();
 			var password = document.getElementById("txtPass").value.trim();
 			var cedula = document.getElementById("txtCedu").value.trim();
@@ -89,10 +89,7 @@
 		<br>
 		<br>
 		<button onclick="enviarDatos()">Actualizar</button>
-		<br>
-		<br>
-		<%--  --%>
-		<a href="FormClientes.jsp">Registro cliente</a>
+		<a class="back" href="../../admin.html">Atras</a>
 		<br>
 		<br>
 		<div id="dvTabla"></div>

@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head><link rel="stylesheet" href="../../css/admin_in.css">
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -22,7 +22,7 @@
 
 		http.onreadystatechange = function() {//Call a function when the state changes.
 			if (http.readyState == 4 && http.status == 200) {
-				alert(http.responseText);
+				//alert(http.responseText);
 				CreateTableFromJSON(http.responseText);
 
 			}
@@ -102,6 +102,7 @@
 		</table>
 		<br> <br>
 		<button onclick="consultar()">Consultar</button>
+		<a class="back" href="../../admin.html">Atras</a>
 		<br> <br>
 		<div id="dvResult"></div>
 	</main>
