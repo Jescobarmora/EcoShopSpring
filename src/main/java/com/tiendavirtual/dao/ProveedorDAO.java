@@ -52,5 +52,41 @@ public class ProveedorDAO {
 		}
 		return proveedores;
 	}
+	
+	public void actualizarProveedor(Proveedor proveedor) {
+	    ConexionBD cnx=new ConexionBD();
+	    Connection cn = cnx.getConexionBD();	
+	    if (cn != null) {
+	    	String modificarR = "NIT=" + proveedor.getNIT() + ",nombre='" + proveedor.getNombre() + "',direccion='" + proveedor.getDireccion() +"',telefono=" + proveedor.getTelefono() + ",email='" + proveedor.getEmail() + "',sitioweb='" + proveedor.getSitioweb() + "'";
+	        String query = "UPDATE proveedores"
+	                + " SET " + modificarR	
+	                + " WHERE NIT=" + proveedor.getNIT();
+	        try {
+	            PreparedStatement consultaDB = cn.prepareStatement(query);
+	            consultaDB.execute();
+	            consultaDB.close();
+	        } catch (SQLException e) {
+	        }
+	    } else {
+	    }
 
+	}
+	
+	public void eliminarProveedor(long NIT) {
+        ConexionBD cnx=new ConexionBD();
+        Connection cn = cnx.getConexionBD();	
+        if (cn != null) {
+            String query = "DELETE FROM proveedores WHERE NIT=" + NIT;
+            try {
+                PreparedStatement consultaBD = cn.prepareStatement(query);
+                consultaBD.execute();
+                consultaBD.close();
+
+            } catch (Exception e) {
+                System.out.println("Error...." + e.getMessage());
+            }
+
+        } else {
+        }
+    }
 }

@@ -10,15 +10,16 @@
 		var valido = validar();
 		if (valido) {
 			alert("Los datos son validos");
-			var nombre = document.getElementById("txtUser").value.trim();
-			var password = document.getElementById("txtPass").value.trim();
-			var cedula = document.getElementById("txtCedu").value.trim();
+			var NIT = document.getElementById("txtNIT").value.trim();
+			var nombre = document.getElementById("txtNombre").value.trim();
+			var direccion = document.getElementById("txtDireccion").value.trim();
+			var telefono = document.getElementById("txtTelefono").value.trim();
 			var email = document.getElementById("txtEmail").value.trim();
-			var nombreusuario = document.getElementById("txtNombre").value.trim();
+			var sitioweb = document.getElementById("txtSitioWeb").value.trim();
 
 			var mensajero = new XMLHttpRequest();
-			var url = '/TiendaVirtualGrupo02Ecoshop/actualizarUsuario';
-			var params = "nombre=" + nombre + "&" + "password=" + password + "&" + "cedula=" + cedula + "&" + "email=" + email + "&" +"nombreusuario=" + nombreusuario;
+			var url = '/TiendaVirtualGrupo02Ecoshop/actualizarProveedor';
+			var params = "NIT=" + NIT + "&" + "nombre=" + nombre + "&" + "direccion=" + direccion + "&" + "telefono=" + telefono + "&" +"email=" + email + "&" + "sitioweb=" + sitioweb;
 			mensajero.open('POST', url, true);
 
 			//Send the proper header information along with the request
@@ -39,14 +40,15 @@
 		}
 	}
 	function validar() {
-		txtU = document.getElementById("txtUser");
-		txtP = document.getElementById("txtPass");
-		txtC = document.getElementById("txtCedu");
-		txtE = document.getElementById("txtEmail");
-		txtN = document.getElementById("txtNombre");
+		txtU = document.getElementById("txtNIT");
+		txtP = document.getElementById("txtNombre");
+		txtC = document.getElementById("txtDireccion");
+		txtE = document.getElementById("txtTelefono");
+		txtN = document.getElementById("txtEmail");
+		txtS = document.getElementById("txtSitioWeb");
 
-		if (txtU.value.trim().length == 0 ||txtP.value.trim().length == 0 ||txtC.value.trim().length == 0 ||txtE.value.trim().length == 0 ||txtN.value.trim().length == 0 ) {
-			alert("No puede estar vacio usuario.");
+		if (txtU.value.trim().length == 0 ||txtP.value.trim().length == 0 ||txtC.value.trim().length == 0 ||txtE.value.trim().length == 0 ||txtN.value.trim().length == 0 || txtS.value.trim().length == 0) {
+			alert("No puede estar vacio Proveedor");
 			return false;
 		} else {
 			return true;
@@ -57,22 +59,27 @@
 </head>
 <body>
 	<main>
-		<h1>Actualizacion del usuario</h1>
+		<h1>Actualizacion Del Proveedor</h1>
 		<table>
 			<tr>
-				<td><label>User name:</label></td>
-				<td><input required="required" type="text" id="txtUser"
+				<td><label>NIT:</label></td>
+				<td><input required="required" type="number" id="txtNIT"
+					name="NIT"></td>
+			</tr>
+			<tr>
+				<td><label>Nombre:</label></td>
+				<td><input required="required" type="text" id="txtNombre"
 					name="nombre"></td>
 			</tr>
 			<tr>
-				<td><label>Password:</label></td>
-				<td><input required="required" type="password" id="txtPass"
-					name="password"></td>
+				<td><label>Direcccion:</label></td>
+				<td><input required="required" type="text" id="txtDireccion"
+					name="direccion"></td>
 			</tr>
 			<tr>
-				<td><label>Cedula:</label></td>
-				<td><input required="required" type="number" id="txtCedu"
-					name="cedula"></td>
+				<td><label>Telefono:</label></td>
+				<td><input required="required" type="number" id="txtTelefono"
+					name="telefono"></td>
 			</tr>
 			<tr>
 				<td><label>Email:</label></td>
@@ -80,9 +87,9 @@
 					name="email"></td>
 			</tr>
 			<tr>
-				<td><label>Nombre del usuario:</label></td>
-				<td><input required="required" type="text" id="txtNombre"
-					name="nombreusuario"></td>
+				<td><label>Sitio Web:</label></td>
+				<td><input required="required" type="text" id="txtSitioWeb"
+					name="sitioweb"></td>
 			</tr>
 			
 		</table>
