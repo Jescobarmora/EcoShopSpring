@@ -10,11 +10,11 @@
 		var valido = validar();
 		if (valido) {
 			alert("Los datos son validos");
-			var cedula = document.getElementById("txtCedu").value.trim();
+			var NIT = document.getElementById("txtNIT").value.trim();
 
 			var mensajero = new XMLHttpRequest();
-			var url = '/TiendaVirtualGrupo02Ecoshop/eliminarUsuario';
-			var params = "cedula=" + cedula;
+			var url = '/TiendaVirtualGrupo02Ecoshop/eliminarProveedor';
+			var params = "NIT=" + NIT;
 			mensajero.open('POST', url, true);
 
 			//Send the proper header information along with the request
@@ -35,7 +35,7 @@
 		}
 	}
 	function validar() {
-		txtC = document.getElementById("txtCedu");
+		txtC = document.getElementById("txtNIT");
 
 		if (txtC.value.trim().length == 0 ) {
 			alert("No puede estar vacio cedula.");
@@ -49,13 +49,13 @@
 </head>
 <body>
 	<main>
-		<h1>Borrar usuario</h1>
+		<h1>Borrar Proveedor</h1>
 		<table>
 			
 			<tr>
-				<td><label>Cedula:</label></td>
-				<td><input required="required" type="number" id="txtCedu"
-					name="cedula"></td>
+				<td><label>NIT:</label></td>
+				<td><input required="required" type="number" id="txtNIT"
+					name="NIT"></td>
 			</tr>
 			
 		</table>
