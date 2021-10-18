@@ -6,19 +6,14 @@ public class Ventas {
 	private long codigo_producto_fk;
 	private int cantidad;
 	private long cedula_cliente_fk,cedula_usuario_fk;
-	public Ventas(int idventa, long codigo_producto_fk, int cantidad, long cedula_cliente_fk, long cedula_usuario_fk) {
+	public Ventas( long codigo_producto_fk, int cantidad, long cedula_cliente_fk, long cedula_usuario_fk) {
 		super();
 		this.codigo_producto_fk = codigo_producto_fk;
 		this.cantidad = cantidad;
 		this.cedula_cliente_fk = cedula_cliente_fk;
 		this.cedula_usuario_fk = cedula_usuario_fk;
 	}
-	public int getIdventa() {
-		return idventa;
-	}
-	public void setIdventa(int idventa) {
-		this.idventa = idventa;
-	}
+	
 	public long getCodigo_producto_fk() {
 		return codigo_producto_fk;
 	}

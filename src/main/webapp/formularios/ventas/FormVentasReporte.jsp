@@ -74,10 +74,10 @@
 </script>
 </head>
 <body>
-	<button onclick="consultar(0)">Consultar por producto</button>
-	<br>
-	<button onclick="consultar(1)">Consultar por cliente</button>
-	<br>
+	<button class="pds" onclick="consultar(0)">Consultar por producto</button>
+	<br><br>
+	<button class="pds" onclick="consultar(1)">Consultar por cliente</button>
+	<br><br>
 	<a class="back" href="../../admin.html">Atras</a>
 	<br>
 	<br>

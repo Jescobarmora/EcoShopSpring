@@ -83,7 +83,6 @@
 		</tr>
 		<tr>
 			<td><button onclick="sendData()">Enviar Datos</button></td>
-			<td><button onclick="clearForm()">Cancelar</button></td>
 			<td><a class="back" href="../../admin.html">Atras</a></td>
 		</tr>
 	</table>

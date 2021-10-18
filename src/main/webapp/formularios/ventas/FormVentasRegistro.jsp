@@ -204,17 +204,17 @@ function consultarUsuario() {
 			<tr>
 				<td><label>Codigo del producto:</label></td>
 				<td><input type="number" id="txtCodigo"></td>
-				<td><button onclick="consultarProducto()">Consultar Producto</button></td>
+				<td><button class="pds" onclick="consultarProducto()">Consultar Producto</button></td>
 			</tr>
 			<tr>
 				<td><label>Cedula del cliente:</label></td>
 				<td><input type="number" id="txtCedu"></td>
-				<td><button onclick="consultarCliente()">Consultar Cliente</button></td>
+				<td><button class="pds" onclick="consultarCliente()">Consultar Cliente</button></td>
 			</tr>
 			<tr>
 				<td><label>Cedula del usuario:</label></td>
 				<td><input type="number" id="txtCeduU"></td>
-				<td><button onclick="consultarUsuario()">Consultar Usuario</button></td>
+				<td><button class="pds" onclick="consultarUsuario()">Consultar Usuario</button></td>
 			</tr>
 
 		</table>

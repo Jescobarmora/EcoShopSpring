@@ -94,7 +94,7 @@ h1{
 }
 
 button{
-   	margin-left: 260px;
+   	margin-left: 160px;
     font-weight: 400;
     line-height: 1.5;
     color: white;
@@ -122,11 +122,16 @@ button{
     vertical-align: middle;
     cursor: pointer;
     border: 1px solid transparent;
-    padding: 2px 12px;
+    padding: 5px 12px;
     font-size: 1rem;
     border-radius: .25rem;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
+}
+
+.pds{
+	margin-left: 80px;
+	
 }
 
 input{
