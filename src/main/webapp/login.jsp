@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="css/admin_in.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/login.css">
@@ -28,8 +29,14 @@
 
 			http.onreadystatechange = function() {//Call a function when the state changes.
 				if (http.readyState == 4 && http.status == 200) {
-					alert(http.responseText)
-					booleano= Boolean(http.responseText);
+					//alert(http.responseText)
+					booleano=(http.responseText);
+						if (booleano=="true"){
+							//window.location.replace= "https://localhost8080:/TiendaVirtualGrupo02Ecoshop/admin.html";
+							window.location.replace("/TiendaVirtualGrupo02Ecoshop/admin.html");
+						}else{
+							alert("Datos erroneos, intente nuevamente.")
+						}
 					}
 			}
 			http.send(params);
@@ -38,15 +45,7 @@
 		
 	}
 	
-	function redireccionar(){
-		
-		if (consultar()){
-			window.location.replace= "https://localhost8080:/TiendaVirtualGrupo02Ecoshop/admin.html";
-		}else{
-			alert("Datos erroneos, intente nuevamente.")
-		}
-		
-	}
+	
 		
 
 	function validar() {
@@ -81,12 +80,13 @@
 
 		</table>
 		<br> <br>
-		<button onclick="redireccionar()">Ingresar</button>
+		<button onclick="consultar()">Ingresar</button>
+		<a class="back" href="index.html"> Salir a pantalla principal</a>
 		<br> <br>
 	</main>
 	
 	<br><br>
-  <a href="index.html"> Salir a pantalla principal</a>
+  
 </body>
 
 </html>

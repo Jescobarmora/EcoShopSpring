@@ -19,10 +19,11 @@ public class AdminDAO {
                 query = "SELECT " + atributos + " FROM admi WHERE user='" + admi.getUser() + "' AND pass='" + admi.getPassw() + "'" ;
                 Statement sentencia = cn.createStatement();
                 ResultSet resultado = sentencia.executeQuery(query);
-                if (resultado == null) {
-                	return false;
-                }else {
+                resultado.next();
+                if (resultado.getString(1).equals(admi.getUser())  && resultado.getString(2).equals(admi.getPassw()) ) {
                 	return true;
+                }else {
+                	return false;
                 }
             } catch (SQLException e) {
             	System.out.println("Mensaje "+e);
