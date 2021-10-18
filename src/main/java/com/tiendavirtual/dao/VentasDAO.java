@@ -25,6 +25,7 @@ public class VentasDAO {
 			System.out.println(e.getMessage());
 		}
 	}
+	
 
 	public ArrayList <String> consultarConsolidado(String tipo) {
 		ArrayList<String> registros = new ArrayList<String>();

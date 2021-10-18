@@ -16,6 +16,7 @@ public class Producto {
 		this.precio_venta = precio_venta;
 		this.proovedores_NIT = proovedores_NIT;
 	}
+	public Producto() {}
 	public long getCodigo_producto() {
 		return codigo_producto;
 	}

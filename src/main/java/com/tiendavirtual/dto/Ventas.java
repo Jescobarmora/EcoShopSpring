@@ -8,7 +8,6 @@ public class Ventas {
 	private long cedula_cliente_fk,cedula_usuario_fk;
 	public Ventas(int idventa, long codigo_producto_fk, int cantidad, long cedula_cliente_fk, long cedula_usuario_fk) {
 		super();
-		this.idventa = idventa;
 		this.codigo_producto_fk = codigo_producto_fk;
 		this.cantidad = cantidad;
 		this.cedula_cliente_fk = cedula_cliente_fk;

@@ -19,8 +19,10 @@ import com.tiendavirtual.dao.UsuarioDAO;
 import com.tiendavirtual.dao.VentasDAO;
 import com.tiendavirtual.dto.Admin;
 import com.tiendavirtual.dto.Cliente;
+import com.tiendavirtual.dto.Producto;
 import com.tiendavirtual.dto.Proveedor;
 import com.tiendavirtual.dto.Usuario;
+import com.tiendavirtual.dto.Ventas;
 
 @RestController
 public class Controlador {
@@ -143,12 +145,26 @@ public class Controlador {
 		}
 		return ResponseEntity.ok("Archivo cargado con exito.");
 	}
+	
+	@RequestMapping("/consultarProducto")
+	public ArrayList<Producto> consultarProducto(long codigo_producto) {
+		ProductosDAO dao = new ProductosDAO();
+		ArrayList<Producto> productos = dao.buscarProductos(codigo_producto);
+		return productos;// esto al final es un response
+	}
 
 	/*------------------------------------------- Ventas --------------------------------------------------*/
 	@RequestMapping("/consultarVentas")
 	public ArrayList<String> consultarVentas(String tipo) {
 		VentasDAO dao = new VentasDAO();
 		return dao.consultarConsolidado(tipo);
+	}
+	
+	@RequestMapping("/insertarVentas")
+	public String insertarVentas(Ventas p) {
+		VentasDAO dao = new VentasDAO();
+		dao.insertVentas(p);
+		return "Venta Registrada";
 	}
 
 }
