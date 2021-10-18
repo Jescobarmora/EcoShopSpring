@@ -11,18 +11,29 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.tiendavirtual.dao.AdminDAO;
 import com.tiendavirtual.dao.ClienteDAO;
 import com.tiendavirtual.dao.ProductosDAO;
 import com.tiendavirtual.dao.ProveedorDAO;
 import com.tiendavirtual.dao.UsuarioDAO;
 import com.tiendavirtual.dao.VentasDAO;
+import com.tiendavirtual.dto.Admin;
 import com.tiendavirtual.dto.Cliente;
 import com.tiendavirtual.dto.Proveedor;
 import com.tiendavirtual.dto.Usuario;
 
 @RestController
 public class Controlador {
+	/*------------------------------------------- Admin --------------------------------------------------*/
 
+	@RequestMapping("/verificarAdmi")
+	public boolean VerificarAdministrador (Admin admi) {
+		AdminDAO dao = new AdminDAO();
+		
+		return dao.VerificarAdministrador(admi);
+		
+	}
+	
 	/*------------------------------------------- Usuarios --------------------------------------------------*/
 
 	@RequestMapping("/crearUsuario")
