@@ -3,6 +3,8 @@ package com.ecoshop.tiendavirtual;
 import java.io.File;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,17 +29,18 @@ import com.tiendavirtual.dto.Ventas;
 @RestController
 public class Controlador {
 	/*------------------------------------------- Admin --------------------------------------------------*/
-
-	@RequestMapping("/verificarAdmi")
-	public boolean VerificarAdministrador (Admin admi) {
-		AdminDAO dao = new AdminDAO();
-		
-		return dao.VerificarAdministrador(admi);
-		
-	}
 	
 	/*------------------------------------------- Usuarios --------------------------------------------------*/
 
+	
+	@RequestMapping("/verificarAdmi")
+	public boolean VerificarAdministrador (Admin admin) {
+		String a=admin.getUser();
+		String b=admin.getPassw();
+		AdminDAO dao = new AdminDAO();
+		return dao.VerificarAdministrador(admin);
+	}
+	
 	@RequestMapping("/crearUsuario")
 	public String insertarUsuario(Usuario user) {
 		UsuarioDAO dao = new UsuarioDAO();
@@ -134,15 +137,23 @@ public class Controlador {
 
 	@PostMapping("/cargarProducto")
 	public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file) {
+		System.out.println("IM IN");
 		String fileName = file.getOriginalFilename();
+		System.out.println("IM IN2");
 		try {
 			File fl = new File("C:\\ArchivosRecibidos\\" + fileName);
+			System.out.println("IM IN3");
 			file.transferTo(fl);
+			System.out.println("IM IN4");
 			ProductosDAO dao = new ProductosDAO();
+			System.out.println("IM IN5");
 			dao.FileUpload(fl);
+			System.out.println("IM IN6");
 		} catch (Exception e) {
+			System.out.println("IM IN7");
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
+		System.out.println("IM IN8");
 		return ResponseEntity.ok("Archivo cargado con exito.");
 	}
 	

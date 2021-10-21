@@ -10,28 +10,27 @@ import com.tiendavirtual.dto.Admin;
 public class AdminDAO {
 	
 	public boolean VerificarAdministrador (Admin admi) {
-        ConexionBD cnx=new ConexionBD();
-        Connection cn = cnx.getConexionBD();
-        if (cn != null) {
+
+		ConexionBD cnx=new ConexionBD();
             try {
-                String atributos = "user, pass";
+                String atributos = "nombre, password";
             	String query="";
-                query = "SELECT " + atributos + " FROM admi WHERE user='" + admi.getUser() + "' AND pass='" + admi.getPassw() + "'" ;
-                Statement sentencia = cn.createStatement();
-                ResultSet resultado = sentencia.executeQuery(query);
-                resultado.next();
-                if (resultado.getString(1).equals(admi.getUser())  && resultado.getString(2).equals(admi.getPassw()) ) {
+            	String nombre=admi.getUser();
+            	String password=admi.getPassw();
+                query = "SELECT " + atributos + " FROM usuarios WHERE nombre='" + nombre + "' AND password='" + password + "'" ;
+                Statement sentencia = cnx.getConexionBD().createStatement();;
+                ResultSet resul = sentencia.executeQuery(query);
+                if (resul.next()) {
+                if (resul.getString("nombre").equals(nombre)  && resul.getString("password").equals(password) ) {
                 	return true;
                 }else {
                 	return false;
-                }
+                }}
             } catch (SQLException e) {
             	System.out.println("Mensaje "+e);
             }
 
-        } else {
-            System.out.println("Error de conexión");
-        }
+        
        return false;
     }
 

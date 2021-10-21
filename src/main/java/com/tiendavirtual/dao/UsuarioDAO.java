@@ -7,11 +7,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.tiendavirtual.dto.Admin;
 import com.tiendavirtual.dto.Usuario;
 
 public class UsuarioDAO {
     
-    
+	
+	
+	
 	public void insertarUsuario(Usuario user) {
 		ConexionBD connection= new ConexionBD();
 		try {
