@@ -45,7 +45,8 @@ function sendData() {
 
 		http.onreadystatechange = function() {//Call a function when the state changes.
 			if (http.readyState == 4 && http.status == 200) {
-				//alert(http.responseText);
+				var myDiv = document.getElementById("dvTabla");
+				myDiv.innerHTML = "<b>"+"Mensaje "+http.responseText+"</b>";
 			}
 		}
 		http.send(params);
@@ -197,6 +198,8 @@ function consultarUsuario() {
 		<br>
 		<button onclick="sendData()">Registrar venta</button>
 		<a class="back" href="../../admin.html">Atras</a>
+		<br>
+	<div id="dvTabla"></div>
 		<br><br><br>
 		<h1>Consultar Productos, clientes o usuarios</h1>
 		<table>

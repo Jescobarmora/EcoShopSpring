@@ -46,7 +46,8 @@
 
 			http.onreadystatechange = function() {//Call a function when the state changes.
 				if (http.readyState == 4 && http.status == 200) {
-					//alert(http.responseText);
+					var myDiv = document.getElementById("dvTabla");
+					myDiv.innerHTML = "<b>"+"Mensaje "+http.responseText+"</b>";
 				}
 			}
 			http.send(params);
@@ -86,6 +87,7 @@
 			<td><a class="back" href="../../admin.html">Atras</a></td>
 		</tr>
 	</table>
-
+	<br>
+	<div id="dvTabla"></div>
 </body>
 </html>

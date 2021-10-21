@@ -15,7 +15,8 @@
 			body : formData
 		});
 		if (response.status == 200) {
-			//alert(response.text());
+			var myDiv = document.getElementById("dvTabla");
+			myDiv.innerHTML = "<b>"+"Mensaje "+http.responseText+"</b>";
 		}
 	}
 </script>
@@ -25,5 +26,7 @@
 	<input id="fileupload" type="file" name="fileupload" />
 	<button id="btnUpload" onclick="CargarArchivo()">Subir Archivo</button>
 	<a class="back" href="../../admin.html">Atras</a>
+	<br>
+	<div id="dvTabla"></div>
 </body>
 </html>
