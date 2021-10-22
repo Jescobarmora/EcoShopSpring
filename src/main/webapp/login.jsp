@@ -20,7 +20,7 @@
 			
 			var http = new XMLHttpRequest();
 			var url = '/TiendaVirtualGrupo02Ecoshop/verificarAdmi';
-			var params = "user=" + user + "&" + "passw=" + pass;
+			var params = "nombre=" + user + "&" + "password=" + pass;
 			http.open('POST', url, true);
 
 			//Send the proper header information along with the request

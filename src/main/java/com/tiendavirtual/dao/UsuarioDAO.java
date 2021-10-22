@@ -13,7 +13,33 @@ import com.tiendavirtual.dto.Usuario;
 public class UsuarioDAO {
     
 	
-	
+	public Usuario VerificarAdministrador (Usuario user) {
+
+		ConexionBD cnx=new ConexionBD();
+            try {
+                String atributos = "nombre, password, cedula_usuario";
+            	String query="";
+            	String nombre=user.getNombre();
+            	String password=user.getPassword();
+                query = "SELECT " + atributos + " FROM usuarios WHERE nombre='" + nombre + "' AND password='" + password + "'" ;
+                Statement sentencia = cnx.getConexionBD().createStatement();;
+                ResultSet resul = sentencia.executeQuery(query);
+                if (resul.next()) {
+                if (resul.getString("nombre").equals(nombre)  && resul.getString("password").equals(password) ) {
+                	user.setCedula(Long.parseLong(resul.getString("cedula_usuario")));
+                	return user;
+                }else {
+                	user.setCedula(0);
+                	return user;
+                }
+                }
+            } catch (SQLException e) {
+            	System.out.println("Mensaje "+e);
+            }
+
+        
+       return user;
+    }
 	
 	public void insertarUsuario(Usuario user) {
 		ConexionBD connection= new ConexionBD();

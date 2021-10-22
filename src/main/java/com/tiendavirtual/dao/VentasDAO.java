@@ -10,8 +10,13 @@ import javax.swing.JOptionPane;
 import com.tiendavirtual.dto.Ventas;
 
 public class VentasDAO {
+	//private long cedula_usuario;
 	
-	
+	//public void setCedula_usuario(long cedula_usuario) {
+	//	this.cedula_usuario = cedula_usuario;
+	//}
+
+
 	public void insertVentas(Ventas ven) {
 		ConexionBD conex = new ConexionBD();
 		try {

@@ -17,10 +17,7 @@ function validateFields() {
 	} else if (document.getElementById("txtCdCliente").value.trim().length == 0) {
 		alert("La cedula del cliente no puede ser vacia.");
 		return false;
-	} else if (document.getElementById("txtCdUsuario").value.trim().length == 0) {
-		alert("La cedula del usuario no puede ser vacio.");
-		return false;
-	} else {
+	}  else {
 		return true;
 	}
 }
@@ -32,11 +29,11 @@ function sendData() {
 		var CdProducto = document.getElementById("txtCdProducto").value.trim();
 		var Cantidad = document.getElementById("txtCantidad").value.trim();
 		var CdCliente = document.getElementById("txtCdCliente").value.trim();
-		var CdUsuario = document.getElementById("txtCdUsuario").value.trim();
+		
 
 		var http = new XMLHttpRequest();
 		var url = '/TiendaVirtualGrupo02Ecoshop/insertarVentas';
-		var params = "codigo_producto_fk=" + CdProducto + "&" + "cantidad=" + Cantidad + "&" + "cedula_cliente_fk=" + CdCliente + "&" + "cedula_usuario_fk="+CdUsuario;
+		var params = "codigo_producto_fk=" + CdProducto + "&" + "cantidad=" + Cantidad + "&" + "cedula_cliente_fk=" + CdCliente+ "&" + "cedula_usuario_fk=" + "0";
 		http.open('POST', url, true);
 
 		//Send the proper header information along with the request
@@ -55,29 +52,7 @@ function sendData() {
 
 
 
-function consultarUsuario() {
-	var cedula = document.getElementById("txtCeduU").value.trim();
-	if (cedula.trim() == "") {
-		cedula = -1;
-	}
-	var http = new XMLHttpRequest();
-	var url = '/TiendaVirtualGrupo02Ecoshop/buscarUsuario';
-	var params = "cedula=" + cedula;
-	http.open('POST', url, true);
 
-	//Send the proper header information along with the request
-	http.setRequestHeader('Content-type',
-			'application/x-www-form-urlencoded');
-
-	http.onreadystatechange = function() {//Call a function when the state changes.
-		if (http.readyState == 4 && http.status == 200) {
-			//alert(http.responseText);
-			CreateTableFromJSON(http.responseText);
-
-		}
-	}
-	http.send(params);
-}
 	function consultarCliente() {
 		var cedula = document.getElementById("txtCedu").value.trim();
 		if (cedula.trim() == "") {
@@ -189,14 +164,10 @@ function consultarUsuario() {
 				<td><label>Cedula de cliente:</label></td>
 				<td><input type="number" id="txtCdCliente"></td>
 			</tr>
-			<tr>
-				<td><label>Cedula del usuario:</label></td>
-				<td><input type="number" id="txtCdUsuario"></td>
-			</tr>
-			
 		</table>
 		<br>
 		<button onclick="sendData()">Registrar venta</button>
+		<br>
 		<a class="back" href="../../admin.html">Atras</a>
 		<br>
 	<div id="dvTabla"></div>
@@ -213,11 +184,6 @@ function consultarUsuario() {
 				<td><label>Cedula del cliente:</label></td>
 				<td><input type="number" id="txtCedu"></td>
 				<td><button class="pds" onclick="consultarCliente()">Consultar Cliente</button></td>
-			</tr>
-			<tr>
-				<td><label>Cedula del usuario:</label></td>
-				<td><input type="number" id="txtCeduU"></td>
-				<td><button class="pds" onclick="consultarUsuario()">Consultar Usuario</button></td>
 			</tr>
 
 		</table>

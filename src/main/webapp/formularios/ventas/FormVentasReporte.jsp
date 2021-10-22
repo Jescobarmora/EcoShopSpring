@@ -13,11 +13,28 @@
 
 	//===================================== FUNCIONES PROPIAS =============================
 
+		function generarLetra(){
+	var letras = ['a','b','c','d','e','f','0','1','2','3','4','5','6','7','8','9'];
+	var numero = (Math.random()*15).toFixed(0);
+	return letras[numero];
+}
+	
+function colorHEX(){
+	var coolor = '';
+	for(var i=0;i<6;i++){
+		coolor = coolor + generarLetra() ;
+	}
+	return '#' + coolor;
+}
+		
 	function consultar(t) {
+		var cedus="";
 		if (t==1){
 			var tipo = "cliente";
+			cedus="CEDULA DEL CLIENTE";
 		} else if (t==0){
 			var tipo = "producto";
+			cedus="CODIGO DE PRODUCTO";
 		}
 		var http = new XMLHttpRequest();
 		var url = '/TiendaVirtualGrupo02Ecoshop/consultarVentas';
@@ -38,12 +55,15 @@
 				datos = datos.replace('[', '').replace(']', '');
 				var tokens = datos.split(',');
 				var tabla = [];
-				tabla.push(["Item","Total"]);
+				tabla.push([cedus,"Cantidad de productos",{ role: 'style' }]);
 				for (var i = 0; i < tokens.length; i++) {
 					var tokens2 = tokens[i].split(';');
 					var reg=[];
 					reg.push(tokens2[0].replace('"',''));
 					reg.push(parseInt(tokens2[1].replace('"','')));
+					var color=colorHEX().replace('"','');
+					//'color: #76A7FA'
+					reg.push(color);
 					tabla.push(reg);
 				}
 				drawChart(tabla);
@@ -57,19 +77,32 @@
 	function drawChart(tabla) {
 		
 		var data = google.visualization.arrayToDataTable(tabla);
-		
-		var options = {
-			chart : {
+		var view = new google.visualization.DataView(data);
+	      view.setColumns([0, 1,
+	                       { calc: "stringify",
+	                         sourceColumn: 1,
+	                         type: "string",
+	                         role: "style" },
+	                       2]);
+	      var options = {
+					//chart : {
+						//width: 600,
+				        //height: 400,
 				title : 'Reporte de ventas de ropa 2021',
-				subtitle : 'Tienda EcoShop Store Grupo 02',
-			},
-			bars : 'horizontal' // Required for Material Bar Charts.
-		};
+						//subtitle : 'Tienda EcoShop Store Grupo 02',
+					//},
+					//bars : 'horizontal' // Required for Material Bar Charts.
+	    		 
+	    	        width: 600,
+	    	        height: 400,
+	    	        bar: {groupWidth: "95%"},
+	    	        legend: { position: "none" },	
+	      };
+	      
 
 		var chart = new google.charts.Bar(document
 				.getElementById('barchart_material'));
-
-		chart.draw(data, google.charts.Bar.convertOptions(options));
+		chart.draw(view, options);
 	}
 </script>
 </head>

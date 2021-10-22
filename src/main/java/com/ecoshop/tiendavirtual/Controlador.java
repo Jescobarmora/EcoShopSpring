@@ -32,13 +32,18 @@ public class Controlador {
 	
 	/*------------------------------------------- Usuarios --------------------------------------------------*/
 
+	private long cedulaadmin;
 	
+
 	@RequestMapping("/verificarAdmi")
-	public boolean VerificarAdministrador (Admin admin) {
-		String a=admin.getUser();
-		String b=admin.getPassw();
-		AdminDAO dao = new AdminDAO();
-		return dao.VerificarAdministrador(admin);
+	public boolean VerificarAdministrador (Usuario user) {
+		UsuarioDAO dao = new UsuarioDAO();
+		if (dao.VerificarAdministrador(user).getCedula()==0)
+			return false;
+		else
+			{
+			cedulaadmin=user.getCedula();
+			return true;}
 	}
 	
 	@RequestMapping("/crearUsuario")
@@ -114,6 +119,7 @@ public class Controlador {
 
 	@RequestMapping("/consultarProveedores")
 	public ArrayList<Proveedor> consultarProveedores(String nit) {
+		
 		ProveedorDAO dao = new ProveedorDAO();
 		return dao.consultarProveedores(nit);
 	}
@@ -174,6 +180,7 @@ public class Controlador {
 	@RequestMapping("/insertarVentas")
 	public String insertarVentas(Ventas p) {
 		VentasDAO dao = new VentasDAO();
+		p.setCedula_usuario_fk(cedulaadmin);
 		dao.insertVentas(p);
 		return "Venta Registrada";
 	}
