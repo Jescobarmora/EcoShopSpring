@@ -16,7 +16,7 @@
 		});
 		if (response.status == 200) {
 			var myDiv = document.getElementById("dvTabla");
-			myDiv.innerHTML = "<b>"+"DOC enviado"</b>";
+			myDiv.innerHTML = "<b>DOC enviado</b>";
 		}
 	}
 </script>
